@@ -6,7 +6,7 @@ from userinput import exit_on_keypress as salir_al_pulsar
 
 
 def cotizacion_de(moneda, moneda_ref):
-    base_url = 'https://api.coinbase.com/v2/exchange-rates?currency='
+    base_url = 'https://api.coinbase.com/v2/exchange-rates?currency=USD'
     r = requests.get(base_url + moneda)
     valor_str = r.json()["data"]["rates"][moneda_ref]
     valor = "{:.2f}".format(float(valor_str))
@@ -16,7 +16,7 @@ def cotizacion_de(moneda, moneda_ref):
 
 def muestra_cotizaciones():
     moneda_ref = 'USD'
-    monedas = ['EUR', 'JPY', '']
+    monedas = ['EUR', 'JPY', 'DT', 'RUB']
     buffer = []
 
     for moneda in monedas:
